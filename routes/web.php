@@ -20,6 +20,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/page', 'PagesController@index');
 Route::get('/contact', 'PagesController@contact');
 
+Route::resource('projects', 'ProjectsController');
+// Route::resources('posts', 'Postsontroller');
+
 Auth::routes();
 
 
