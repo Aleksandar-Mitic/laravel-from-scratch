@@ -21,7 +21,8 @@ Route::get('/page', 'PagesController@index');
 Route::get('/contact', 'PagesController@contact');
 
 Route::resource('projects', 'ProjectsController');
-// Route::resources('posts', 'Postsontroller');
+
+Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 
 Auth::routes();
 
