@@ -11,7 +11,7 @@
             <label class="label" for="title">Title</label>
 
             <div class="control">
-                <input class="input" type="text" name="title" placeholder="Project title" value="{{ old('title') }}">
+                <input class="input" type="text" name="title" placeholder="Project title" value="{{ old('title') }}" required>
             </div>
         </div>
 
@@ -20,7 +20,7 @@
             <label class="label" for="description">Description</label>
 
             <div class="control">
-                <textarea class="textarea" type="textarea" name="description" class="description">{{ old('description') }}</textarea>
+                <textarea class="textarea" type="textarea" name="description" class="description" required>{{ old('description') }}</textarea>
             </div>
         </div>
 
@@ -31,15 +31,6 @@
         </div>
     </form>
 
-    @if ($errors->any())
-        <div class="notification is-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
+    @include('errors')
 
 @endsection
