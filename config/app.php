@@ -174,6 +174,7 @@ return [
         // BasicLaravel\Providers\BroadcastServiceProvider::class,
         BasicLaravel\Providers\EventServiceProvider::class,
         BasicLaravel\Providers\RouteServiceProvider::class,
+        BasicLaravel\Providers\SocialServiceProvider::class,
 
     ],
 

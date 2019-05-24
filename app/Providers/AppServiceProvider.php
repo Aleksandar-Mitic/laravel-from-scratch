@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            \BasicLaravel\Repositories\ProjectRepositoryInterface::class,
+            \BasicLaravel\Repositories\ProjectRepository::class
+        );
     }
 
     /**

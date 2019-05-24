@@ -1,5 +1,7 @@
 <?php
 
+use BasicLaravel\Repositories\ProjectRepository;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +13,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (ProjectRepository $project) {
+    dd($project);
     return view('welcome');
 });
 
