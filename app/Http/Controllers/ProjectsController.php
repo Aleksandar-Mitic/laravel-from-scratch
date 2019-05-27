@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -37,12 +46,14 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        $validated_fields = request()->validate([
+        $attributes = request()->validate([
             'title'       => ['required', 'min:3', 'max:255'],
             'description' => ['required', 'min:30'],
         ]);
 
-        Project::create($validated_fields);
+        $attributes['owner_id'] = auth()->id();
+
+        Project::create($attributes);
 
         return redirect('/projects');
     }

@@ -14,7 +14,7 @@ use BasicLaravel\Repositories\ProjectRepository;
 */
 
 Route::get('/', function (ProjectRepository $project) {
-    dd($project);
+    // dd( auth()->user()  );
     return view('welcome');
 });
 
@@ -29,5 +29,3 @@ Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 
 Auth::routes();
-
-
