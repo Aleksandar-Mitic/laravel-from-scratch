@@ -173,6 +173,7 @@ return [
         BasicLaravel\Providers\AuthServiceProvider::class,
         // BasicLaravel\Providers\BroadcastServiceProvider::class,
         BasicLaravel\Providers\EventServiceProvider::class,
+        BasicLaravel\Providers\TelescopeServiceProvider::class,
         BasicLaravel\Providers\RouteServiceProvider::class,
         BasicLaravel\Providers\SocialServiceProvider::class,
 

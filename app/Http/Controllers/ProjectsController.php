@@ -2,8 +2,10 @@
 
 namespace BasicLaravel\Http\Controllers;
 
+use BasicLaravel\Mail\ProjectCreated;
 use BasicLaravel\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ProjectsController extends Controller
 {
@@ -25,6 +27,7 @@ class ProjectsController extends Controller
     {
         $projects = Project::all();
 
+        return $projects;
         return view('projects.index', compact('projects'));
     }
 
@@ -53,7 +56,12 @@ class ProjectsController extends Controller
 
         $attributes['owner_id'] = auth()->id();
 
-        Project::create($attributes);
+        $project = Project::create($attributes);
+
+        \Mail::to('ravickalex@gmail.com')->send(
+
+            new ProjectCreated($project)
+        );
 
         return redirect('/projects');
     }
