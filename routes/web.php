@@ -14,7 +14,6 @@ use BasicLaravel\Repositories\ProjectRepository;
 */
 
 Route::get('/', function (ProjectRepository $project) {
-    // dd( auth()->user()  );
     return view('welcome');
 });
 

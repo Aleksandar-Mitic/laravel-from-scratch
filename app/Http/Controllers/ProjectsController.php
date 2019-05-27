@@ -4,6 +4,7 @@ namespace BasicLaravel\Http\Controllers;
 
 use BasicLaravel\Mail\ProjectCreated;
 use BasicLaravel\Project;
+use BasicLaravel\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -15,9 +16,6 @@ class ProjectsController extends Controller
         $this->middleware('auth');
     }
 
-
-
-
     /**
      * Display a listing of the resource.
      *
@@ -25,9 +23,8 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = auth()->user()->projects;
 
-        return $projects;
         return view('projects.index', compact('projects'));
     }
 
@@ -51,14 +48,14 @@ class ProjectsController extends Controller
     {
         $attributes = request()->validate([
             'title'       => ['required', 'min:3', 'max:255'],
-            'description' => ['required', 'min:30'],
+            'description' => ['required', 'min:10'],
         ]);
 
         $attributes['owner_id'] = auth()->id();
 
         $project = Project::create($attributes);
 
-        \Mail::to('ravickalex@gmail.com')->send(
+        \Mail::to($project->user->email)->send(
 
             new ProjectCreated($project)
         );
@@ -105,7 +102,12 @@ class ProjectsController extends Controller
      */
     public function update(Project $project)
     {
-        Project::update(request(['title', 'description']));
+        $attributes = request()->validate([
+            'title'       => ['required', 'min:3', 'max:255'],
+            'description' => ['required', 'min:10'],
+        ]);
+
+        $project->update(request(['title', 'description']));
 
         return redirect('/projects');
     }
