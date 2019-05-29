@@ -11,4 +11,8 @@
         @endforeach
     </ul>
 
+    @if (session('message'))
+        {{ session('message') }}
+    @endif
+
 @endsection

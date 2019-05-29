@@ -56,6 +56,8 @@ class ProjectsController extends Controller
 
         $project = Project::create($attributes);
 
+        $request->session()->flash('message', 'Your new project has been created!');
+
         event(new ProjectCreated($project));
 
         return redirect('/projects');

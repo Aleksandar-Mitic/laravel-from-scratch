@@ -15,14 +15,14 @@ use BasicLaravel\User;
 |
 */
 
-Route::get('/', function (ProjectRepository $project) {
-    $user = User::first();
+Route::get('/', function (Request $request, ProjectRepository $project) {
 
-    $user->notify(new SubscriptionRenewalFailed);
-    return 'Done';
-
-    // return view('welcome');
+    // $user = User::first();
+    // $user->notify(new SubscriptionRenewalFailed);
+    // return 'Done';
+    return view('welcome');
 });
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
