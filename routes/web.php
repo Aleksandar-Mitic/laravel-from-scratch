@@ -1,6 +1,8 @@
 <?php
 
+use BasicLaravel\Notifications\SubscriptionRenewalFailed;
 use BasicLaravel\Repositories\ProjectRepository;
+use BasicLaravel\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,12 @@ use BasicLaravel\Repositories\ProjectRepository;
 */
 
 Route::get('/', function (ProjectRepository $project) {
-    return view('welcome');
+    $user = User::first();
+
+    $user->notify(new SubscriptionRenewalFailed);
+    return 'Done';
+
+    // return view('welcome');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
