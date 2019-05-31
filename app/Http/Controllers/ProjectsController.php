@@ -5,7 +5,7 @@ namespace BasicLaravel\Http\Controllers;
 use BasicLaravel\Events\ProjectCreated;
 // use BasicLaravel\Mail\ProjectCreated;
 use BasicLaravel\Project;
-use BasicLaravel\User;
+use BasicLaravel\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 

@@ -2,7 +2,7 @@
 
 namespace BasicLaravel\Http\Controllers\Auth;
 
-use BasicLaravel\User;
+use BasicLaravel\Models\User;
 use BasicLaravel\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;

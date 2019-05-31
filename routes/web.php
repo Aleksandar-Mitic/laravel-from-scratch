@@ -2,7 +2,7 @@
 
 use BasicLaravel\Notifications\SubscriptionRenewalFailed;
 use BasicLaravel\Repositories\ProjectRepository;
-use BasicLaravel\User;
+use BasicLaravel\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,7 @@ Route::get('/', function (Request $request, ProjectRepository $project) {
     // $user = User::first();
     // $user->notify(new SubscriptionRenewalFailed);
     // return 'Done';
+    // dd(auth());
     return view('welcome');
 });
 
@@ -35,3 +36,7 @@ Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 
 Auth::routes();
+
+Route::group(['prefix' => 'admin', 'as' => 'admin'], function() {
+    Route::get('/', 'Admin\DashboardController@index');
+});
