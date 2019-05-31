@@ -1,11 +1,12 @@
 <?php
 
-namespace BasicLaravel\Http\Controllers;
+namespace BasicLaravel\Http\Controllers\Admin;
 
-use BasicLaravel\Models\Post;
+use BasicLaravel\Models\Tag;
 use Illuminate\Http\Request;
+use BasicLaravel\Http\Controllers\Controller;
 
-class PostsController extends Controller
+class TagsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        return 'tags';
     }
 
     /**
@@ -41,10 +42,10 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \BasicLaravel\Post  $post
+     * @param  \BasicLaravel\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Tag $tag)
     {
         //
     }
@@ -52,10 +53,10 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \BasicLaravel\Post  $post
+     * @param  \BasicLaravel\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Tag $tag)
     {
         //
     }
@@ -64,10 +65,10 @@ class PostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \BasicLaravel\Post  $post
+     * @param  \BasicLaravel\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Tag $tag)
     {
         //
     }
@@ -75,10 +76,10 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \BasicLaravel\Post  $post
+     * @param  \BasicLaravel\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Tag $tag)
     {
         //
     }

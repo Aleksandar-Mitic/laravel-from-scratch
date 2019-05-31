@@ -1,11 +1,13 @@
 <?php
 
-namespace BasicLaravel\Http\Controllers;
+namespace BasicLaravel\Http\Controllers\Admin;
 
-use BasicLaravel\Admin\Pages;
+use BasicLaravel\Models\Page;
 use Illuminate\Http\Request;
 
-class AdminPagesController extends Controller
+use BasicLaravel\Http\Controllers\Controller;
+
+class PagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class AdminPagesController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pages');
     }
 
     /**
@@ -41,10 +43,10 @@ class AdminPagesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \BasicLaravel\Admin\Pages  $pages
+     * @param  \BasicLaravel\Admin\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function show(Pages $pages)
+    public function show(Page $page)
     {
         //
     }
@@ -52,7 +54,7 @@ class AdminPagesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \BasicLaravel\Admin\Pages  $pages
+     * @param  \BasicLaravel\Admin\Page  $page
      * @return \Illuminate\Http\Response
      */
     public function edit(Pages $pages)
@@ -64,10 +66,10 @@ class AdminPagesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \BasicLaravel\Admin\Pages  $pages
+     * @param  \BasicLaravel\Admin\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pages $pages)
+    public function update(Request $request, Page $page)
     {
         //
     }

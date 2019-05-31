@@ -39,4 +39,6 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'as' => 'admin'], function() {
     Route::get('/', 'Admin\DashboardController@index');
+    Route::get('/pages', 'Admin\PagesController@index');
+    Route::get('/tags', 'Admin\TagsController@index');
 });
